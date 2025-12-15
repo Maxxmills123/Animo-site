@@ -4,17 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Ánimo Studio | Brand Strategy + Photography in Sacramento</title>
+    <title>Wedding Photography in Sacramento | Ánimo Studio</title>
     <meta
       name="description"
-      content="Ánimo Studio is a Sacramento-based studio offering brand strategy, headshots + team photography, and product photography for growing businesses."
+      content="Ánimo Studio offers wedding photography in Sacramento with a clean, candid approach. Coverage for ceremonies, receptions, and intimate celebrations."
     />
 
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#ededed" />
     <meta name="color-scheme" content="dark light" />
 
-    <link rel="canonical" href="https://www.animostudio.co/" />
+    <link
+      rel="canonical"
+      href="https://www.animostudio.co/services/wedding-photography.html"
+    />
 
     <link rel="icon" href="/assets/favicon.ico?v=122" sizes="any" />
     <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
@@ -23,13 +26,16 @@
     <meta property="og:site_name" content="Ánimo Studio" />
     <meta
       property="og:title"
-      content="Ánimo Studio | Brand Strategy + Photography in Sacramento"
+      content="Wedding Photography in Sacramento | Ánimo Studio"
     />
     <meta
       property="og:description"
-      content="Brand strategy, headshots + team photography, and product photography for growing Sacramento businesses."
+      content="Wedding photography in Sacramento with a clean, candid approach. Coverage for ceremonies, receptions, and intimate celebrations."
     />
-    <meta property="og:url" content="https://www.animostudio.co/" />
+    <meta
+      property="og:url"
+      content="https://www.animostudio.co/services/wedding-photography.html"
+    />
     <meta
       property="og:image"
       content="https://www.animostudio.co/assets/og.jpg"
@@ -39,16 +45,24 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Ánimo Studio",
-        "url": "https://www.animostudio.co/",
-        "areaServed": "Sacramento, CA",
-        "serviceType": [
-          "Brand strategy",
-          "Brand identity design",
-          "Headshots and team photography",
-          "Product photography"
-        ]
+        "@type": "Service",
+        "name": "Wedding Photography",
+        "serviceType": ["Wedding photography"],
+        "areaServed": {
+          "@type": "City",
+          "name": "Sacramento"
+        },
+        "provider": {
+          "@type": "ProfessionalService",
+          "name": "Ánimo Studio",
+          "url": "https://www.animostudio.co/"
+        },
+        "url": "https://www.animostudio.co/services/wedding-photography.html",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Ánimo Studio",
+          "url": "https://www.animostudio.co/"
+        }
       }
     </script>
 
@@ -59,10 +73,10 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/shell.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/shell.css" />
 
-    <script src="js/main.js" type="module" defer></script>
+    <script src="/js/main.js" type="module" defer></script>
   </head>
   <body>
     <header class="site-header" role="banner" data-header>
@@ -286,7 +300,7 @@
     </header>
     <main>
       <section class="hero" aria-labelledby="hero-title">
-        <h1 id="hero-title" class="hero-title">Home Page</h1>
+        <h1 id="hero-title" class="hero-title">Wedding Photography</h1>
       </section>
     </main>
     <footer class="footer-shell" aria-label="Footer">
@@ -462,6 +476,7 @@
         </p>
       </div>
     </footer>
+
     <script>
       document.getElementById("footer-year").textContent =
         new Date().getFullYear();
