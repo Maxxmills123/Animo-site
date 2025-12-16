@@ -22,7 +22,7 @@
 
   --header-z: 1000;
   --header-bg: color-mix(in srgb, var(--bg) 88%, transparent);
-  --header-blur: 10px;
+  --header-blur: 2px;
 }
 
 .animo {
@@ -59,6 +59,7 @@
 html,
 body {
   background-color: var(--bg);
+  height: 100% !important;
 }
 
 html {
@@ -69,10 +70,38 @@ html {
 
 body {
   margin: 0;
-  min-height: 110dvh !important;
-  min-height: 110vh !important;
+  min-height: 100dvh !important;
+  min-height: 100vh !important;
   color: var(--text);
   line-height: 1.5;
+}
+
+body {
+  min-height: 100svh !important;
+}
+
+@supports (height: 100dvh) {
+  body {
+    min-height: 100dvh;
+  }
+}
+
+.site-header {
+  padding-top: env(safe-area-inset-top) !important;
+}
+
+@media (max-width: 1024px) {
+  .nav-bar--mobile {
+    padding-top: calc(0.9rem + env(safe-area-inset-top)) !important;
+  }
+}
+
+.drawer-inner {
+  padding-top: calc(4.25rem + env(safe-area-inset-top)) !important;
+}
+
+.drawer {
+  padding-bottom: env(safe-area-inset-bottom) !important;
 }
 
 img,
@@ -104,7 +133,7 @@ a {
   top: 0;
   z-index: var(--header-z);
   width: 100%;
-  background: var(--header-bg);
+  background: transparent;
   backdrop-filter: blur(var(--header-blur));
   -webkit-backdrop-filter: blur(var(--header-blur));
 }
@@ -1312,4 +1341,40 @@ a {
 .footer-slogan-wrap {
   margin-top: clamp(-2.25rem, -4vw, -1.1rem);
   margin-bottom: clamp(1.8rem, 3.5vw, 3rem);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+.site-header {
+  padding-top: env(safe-area-inset-top);
+}
+
+.nav-bar--desktop {
+  padding: calc(var(--nav-pad-y) + env(safe-area-inset-top))
+    calc(var(--nav-pad-x) + env(safe-area-inset-right)) var(--nav-pad-y)
+    calc(var(--nav-pad-x) + env(safe-area-inset-left));
+}
+
+.footer-shell {
+  position: relative;
+  z-index: 0;
+}
+
+@media (max-width: 1024px) {
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding-top: env(safe-area-inset-top);
+
+    transform: translateZ(0);
+  }
 }
