@@ -56,6 +56,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  background-color: var(--bg);
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -64,8 +69,8 @@ html {
 
 body {
   margin: 0;
-  min-height: 100dvh;
-  background-color: var(--bg);
+  min-height: 110dvh !important;
+  min-height: 110vh !important;
   color: var(--text);
   line-height: 1.5;
 }
@@ -837,6 +842,23 @@ a {
   font-style: normal;
 }
 
+.footer {
+  position: relative;
+  background: var(--accent);
+  overflow: visible;
+}
+
+.footer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -30vh;
+  height: 30vh;
+  background: var(--accent);
+  z-index: -1;
+}
+
 .footer-shell {
   min-height: 90vh;
   height: auto;
@@ -1140,7 +1162,7 @@ a {
   }
 
   .footer-slogan-wrap {
-    margin-top: 3rem;
+    margin-top: 3rem !important;
     margin-bottom: 6rem;
     padding-top: clamp(1.6rem, 5.5vw, 2.9rem);
     width: 100%;
@@ -1176,7 +1198,7 @@ a {
     font-weight: 100;
     letter-spacing: 0.12rem;
     text-transform: uppercase;
-    font-size: clamp(1.25rem, 1.05rem + 1.7vw, 1.65rem);
+    font-size: clamp(0.95rem, 0.85rem + 1.2vw, 1.25rem);
     line-height: 1.05;
     text-align: left;
     white-space: normal;
@@ -1209,8 +1231,8 @@ a {
     font-family: "BBH Bogle", sans-serif;
     font-style: normal;
     font-weight: 100;
-    font-size: clamp(0.95rem, 0.85rem + 1.2vw, 1.25rem);
-    letter-spacing: 0.09rem;
+    font-size: clamp(0.78rem, 0.7rem + 0.6vw, 0.98rem);
+    letter-spacing: 0.15rem;
     line-height: 1.22;
     opacity: 0.92;
     transition: opacity 160ms ease;
