@@ -265,3 +265,21 @@
     icon.textContent = expanded ? "+" : "−";
   });
 })();
+
+(() => {
+  const root = document.querySelector("[data-footer-accordion]");
+  if (!root) return;
+
+  const items = Array.from(root.querySelectorAll("details[data-acc-item]"));
+
+  items.forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (!item.open) return;
+
+      // close others
+      items.forEach((other) => {
+        if (other !== item) other.open = false;
+      });
+    });
+  });
+})();

@@ -1,5 +1,5 @@
 :root {
-  --bg: #ededed;
+  --bg: #ffffff;
   --text: #1f1f1f;
 
   --accent: #e4e185;
@@ -23,6 +23,72 @@
   --header-z: 1000;
   --header-bg: color-mix(in srgb, var(--bg) 88%, transparent);
   --header-blur: 2px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: transparent;
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100svh;
+}
+
+@supports (height: 100dvh) {
+  body {
+    min-height: 100dvh;
+  }
+}
+
+@supports (height: 100dvh) {
+  body {
+    min-height: 100dvh;
+  }
+}
+
+main,
+header,
+footer {
+  background: transparent;
+}
+
+.site-header {
+  padding-top: env(safe-area-inset-top) !important;
+}
+
+@media (max-width: 1024px) {
+  .nav-bar--mobile {
+    padding-top: calc(0.9rem + env(safe-area-inset-top)) !important;
+  }
+}
+
+.drawer-inner {
+  padding-top: calc(4.25rem + env(safe-area-inset-top)) !important;
+}
+
+.drawer {
+  padding-bottom: env(safe-area-inset-bottom) !important;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .animo {
@@ -50,66 +116,29 @@
   pointer-events: none;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+.animo1 {
+  position: relative;
+  display: inline-block;
+  padding-top: 0rem;
 }
 
-html,
-body {
-  background-color: var(--bg);
-  height: 100% !important;
-}
+.animo1::before {
+  content: "";
+  position: absolute;
 
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  scroll-behavior: smooth;
-}
+  left: 0.6rem;
+  top: 0.5rem;
 
-body {
-  margin: 0;
-  min-height: 100dvh !important;
-  min-height: 100vh !important;
-  color: var(--text);
-  line-height: 1.5;
-}
+  width: 0.7rem;
+  height: 0.3rem;
+  border-radius: 0;
 
-body {
-  min-height: 100svh !important;
-}
+  background: var(--accent-ink);
+  transform: rotate(-50deg);
+  transform-origin: left center;
 
-@supports (height: 100dvh) {
-  body {
-    min-height: 100dvh;
-  }
-}
-
-.site-header {
-  padding-top: env(safe-area-inset-top) !important;
-}
-
-@media (max-width: 1024px) {
-  .nav-bar--mobile {
-    padding-top: calc(0.9rem + env(safe-area-inset-top)) !important;
-  }
-}
-
-.drawer-inner {
-  padding-top: calc(4.25rem + env(safe-area-inset-top)) !important;
-}
-
-.drawer {
-  padding-bottom: env(safe-area-inset-bottom) !important;
-}
-
-img,
-svg,
-video {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  opacity: 0.95;
+  pointer-events: none;
 }
 
 a {
@@ -990,15 +1019,16 @@ a {
 }
 
 .footer-services {
-  width: min(1100px, 92%);
+  width: min(1180px, 94%);
   margin: 0 auto;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 34ch));
   justify-content: center;
-  gap: clamp(0.9rem, 2.6vw, 2rem);
+  gap: clamp(1.1rem, 3vw, 2.4rem);
 
-  margin-top: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .footer-services-col {
@@ -1006,14 +1036,14 @@ a {
 }
 
 .footer-services-title {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.7rem;
   font-family: "BBH Bogle", sans-serif;
   font-style: normal;
   font-weight: 100;
-  letter-spacing: 0.085rem;
+  letter-spacing: 0.095rem;
   text-transform: uppercase;
 
-  font-size: clamp(0.78rem, 0.85vw + 0.25rem, 1.02rem);
+  font-size: clamp(0.9rem, 0.95vw + 0.3rem, 1.12rem);
   line-height: 1;
 
   white-space: nowrap;
@@ -1038,7 +1068,7 @@ a {
   align-items: center;
   justify-content: space-between;
 
-  padding: 0.38rem 0;
+  padding: 0.5rem 0;
   text-decoration: none;
 
   border-bottom: 1px solid
@@ -1048,8 +1078,8 @@ a {
   font-style: normal;
 
   font-weight: 100;
-  font-size: clamp(0.68rem, 0.7vw + 0.2rem, 0.9rem);
-  letter-spacing: 0.07rem;
+  font-size: clamp(0.76rem, 0.78vw + 0.22rem, 0.98rem);
+  letter-spacing: 0.08rem;
   line-height: 1.15;
 
   opacity: 0.92;
@@ -1135,16 +1165,16 @@ a {
 
   display: inline-block;
   width: max-content;
-  max-width: 34ch;
+  max-width: 30ch;
   padding: 0.55rem 0.7rem;
   border-radius: 0.75rem;
 
-  background: color-mix(in srgb, var(--accent-ink) 92%, transparent);
-  color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
 
   font-family: "Oxygen", sans-serif;
   font-style: normal;
-  font-weight: 100;
+  font-weight: 700;
   font-size: clamp(0.78rem, 0.6vw + 0.55rem, 0.95rem);
   letter-spacing: 0.1rem;
   line-height: 1.25;
@@ -1154,7 +1184,7 @@ a {
   pointer-events: none;
 
   box-shadow: 0 10px 25px color-mix(in srgb, var(--accent-ink) 35%, transparent);
-  z-index: 10;
+  z-index: 2147483647;
 }
 
 .animo-term {
@@ -1163,7 +1193,7 @@ a {
 
 .animo-pop:hover .animo-tooltip,
 .animo-term:focus-visible + .animo-tooltip {
-  opacity: 1;
+  opacity: 100;
   visibility: visible;
 }
 
@@ -1376,5 +1406,70 @@ a {
     padding-top: env(safe-area-inset-top);
 
     transform: translateZ(0);
+  }
+}
+
+.footer-services--mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .footer-services--desktop {
+    display: none;
+  }
+  .footer-services--mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 1025px) {
+  .footer-services--desktop {
+    display: flex;
+  }
+  .footer-services--mobile {
+    display: none;
+  }
+}
+
+.footer-services-acc > summary.footer-services-title {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding: 0.6rem 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.footer-services-acc > summary::-webkit-details-marker {
+  display: none;
+}
+.footer-services-acc > summary::marker {
+  content: "";
+}
+
+.footer-services-icon {
+  display: none;
+}
+
+.footer-services-acc > summary.footer-services-title::after {
+  content: "+";
+  flex: 0 0 auto;
+  line-height: 1;
+  opacity: 0.9;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.footer-services-acc[open] > summary.footer-services-title::after {
+  transform: rotate(45deg);
+  opacity: 1;
+}
+
+@media (orientation: portrait) and (min-width: 730px) and (max-width: 1024px) {
+  .footer-shell {
+    min-height: unset;
+    height: auto;
   }
 }
