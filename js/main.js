@@ -1,3 +1,5 @@
+"use strict";
+
 (() => {
   const header = document.querySelector("[data-header]");
   if (!header) return;
@@ -131,7 +133,7 @@
   });
 })();
 
-ƒ(() => {
+(() => {
   const toggle = document.querySelector("[data-drawer-toggle]");
   const drawer = document.querySelector("[data-drawer]");
   const overlay = document.querySelector("[data-drawer-overlay]");
@@ -145,15 +147,20 @@
   const prefersReduced = () =>
     matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const getTransitionSeconds = (el) => {
+    const d = getComputedStyle(el).transitionDuration || "0s";
+    const first = d.split(",")[0].trim();
+    if (first.endsWith("ms")) return (parseFloat(first) || 0) / 1000;
+    return parseFloat(first) || 0;
+  };
+
   const show = () => {
     drawer.hidden = false;
-
     if (overlay) overlay.hidden = true;
   };
 
   const hide = () => {
     drawer.hidden = true;
-
     if (overlay) overlay.hidden = true;
   };
 
@@ -194,7 +201,7 @@
       closeTimer = null;
     }
 
-    const dur = parseFloat(getComputedStyle(drawer).transitionDuration) || 0;
+    const dur = getTransitionSeconds(drawer);
 
     if (prefersReduced() || dur === 0) {
       finishClose();
@@ -219,21 +226,6 @@
   });
 
   if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
-
-  drawer.addEventListener("click", (e) => {
-    if (e.target.closest("a")) closeDrawer();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeDrawer();
-  });
-
-  document.addEventListener("pointerdown", (e) => {
-    if (!root.classList.contains("is-drawer-open")) return;
-    const insideDrawer = e.target.closest("[data-drawer]");
-    const onToggle = e.target.closest("[data-drawer-toggle]");
-    if (!insideDrawer && !onToggle) closeDrawer();
-  });
 
   const acc = drawer.querySelector("[data-acc]");
   if (!acc) return;
@@ -265,50 +257,4 @@
       });
     });
   });
-})();
-
-(() => {
-  const PHONE_E164 = "+15305016888";
-  const ARIA_LABEL = "Call Ánimo Studio";
-
-  const SELECTOR = [
-    "a.mobile-icon-btn--phone",
-    ".mobile-calls a[href^='tel:']",
-    "header a[href^='tel:']",
-    "nav a[href^='tel:']",
-    ".site-header a[href^='tel:']",
-  ].join(",");
-
-  const applyPhone = () => {
-    document.querySelectorAll(SELECTOR).forEach((a) => {
-      a.setAttribute("href", `tel:${PHONE_E164}`);
-      a.setAttribute("aria-label", ARIA_LABEL);
-    });
-  };
-
-  const init = () => {
-    applyPhone();
-
-    new MutationObserver(applyPhone).observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-    });
-
-    document.addEventListener(
-      "click",
-      (e) => {
-        const a = e.target.closest(SELECTOR);
-        if (!a) return;
-        a.setAttribute("href", `tel:${PHONE_E164}`);
-        a.setAttribute("aria-label", ARIA_LABEL);
-      },
-      true
-    );
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
 })();

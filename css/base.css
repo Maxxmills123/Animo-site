@@ -1546,3 +1546,25 @@ a {
     transform: none;
   }
 }
+
+[data-drawer-overlay] {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--header-z, 1000) - 1);
+  background: rgba(0, 0, 0, 0.38);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 220ms ease;
+}
+
+html.is-drawer-open [data-drawer-overlay] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+[data-drawer] {
+  position: fixed;
+  z-index: var(--header-z, 1000);
+}
