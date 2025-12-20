@@ -111,15 +111,28 @@
   .hero.hero-bubble {
     --copy-clear: 0rem;
     --pad: clamp(1rem, 4vw, 2rem);
-    margin-top: 7rem;
+
+    margin-top: 0;
+
+    padding-top: calc(var(--pad) + env(safe-area-inset-top, 0px));
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+    padding-bottom: var(--pad);
   }
 
   .hero-copy {
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - (2 * var(--pad)));
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+
+    width: 100%;
+    margin-top: clamp(2.5rem, 6vh, 4.25rem);
+
     align-items: center;
     text-align: center;
+
+    pointer-events: none;
   }
 
   .hero-bubble-title {
@@ -135,12 +148,13 @@
   }
 
   .hero-bubbles {
-    inset: auto;
     position: relative;
+    inset: auto;
 
     width: 100%;
     padding: 0;
-    margin-top: clamp(1.1rem, 4vw, 2rem);
+
+    margin-top: clamp(0.5rem, 1.6vh, 1rem);
 
     display: grid;
     grid-template-columns: 1fr;
@@ -165,7 +179,7 @@
 
   .bubble--left {
     grid-row: 2;
-    transform: translate(0, -22%);
+    transform: translate(0, -28%);
     z-index: 3;
   }
 }

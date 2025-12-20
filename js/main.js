@@ -131,8 +131,7 @@
   });
 })();
 
-/* ✅ Drawer: no scrim, no scroll locking, no auto-focus on X */
-(() => {
+ƒ(() => {
   const toggle = document.querySelector("[data-drawer-toggle]");
   const drawer = document.querySelector("[data-drawer]");
   const overlay = document.querySelector("[data-drawer-overlay]");
@@ -149,14 +148,12 @@
   const show = () => {
     drawer.hidden = false;
 
-    // ✅ Keep overlay hidden always (no grey scrim)
     if (overlay) overlay.hidden = true;
   };
 
   const hide = () => {
     drawer.hidden = true;
 
-    // ✅ Keep overlay hidden always (no grey scrim)
     if (overlay) overlay.hidden = true;
   };
 
@@ -167,16 +164,12 @@
 
     show();
 
-    // ✅ Add class immediately; no scroll/overflow changes
     requestAnimationFrame(() => {
       root.classList.add("is-drawer-open");
     });
 
     toggle.setAttribute("aria-expanded", "true");
     toggle.setAttribute("aria-label", "Close menu");
-
-    // ✅ Do NOT auto-focus the close button (prevents the focus ring highlight)
-    // if (closeBtn) closeBtn.focus({ preventScroll: true });
   };
 
   const finishClose = () => {
@@ -185,7 +178,6 @@
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-label", "Open menu");
 
-    // Optional: restore focus to the toggle without causing scroll jumps
     if (lastActive && typeof lastActive.focus === "function") {
       lastActive.focus({ preventScroll: true });
     }
@@ -204,7 +196,6 @@
 
     const dur = parseFloat(getComputedStyle(drawer).transitionDuration) || 0;
 
-    // If no transition (or reduced motion), close immediately
     if (prefersReduced() || dur === 0) {
       finishClose();
       return;
@@ -229,10 +220,6 @@
 
   if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
 
-  // ✅ No overlay click handler (overlay stays hidden anyway)
-  // if (overlay) overlay.addEventListener("click", closeDrawer);
-
-  // Close if user taps a link inside the drawer
   drawer.addEventListener("click", (e) => {
     if (e.target.closest("a")) closeDrawer();
   });
@@ -241,7 +228,6 @@
     if (e.key === "Escape") closeDrawer();
   });
 
-  // Click/tap outside closes (works without overlay)
   document.addEventListener("pointerdown", (e) => {
     if (!root.classList.contains("is-drawer-open")) return;
     const insideDrawer = e.target.closest("[data-drawer]");
@@ -249,7 +235,6 @@
     if (!insideDrawer && !onToggle) closeDrawer();
   });
 
-  // Accordion
   const acc = drawer.querySelector("[data-acc]");
   if (!acc) return;
 
@@ -275,11 +260,55 @@
   items.forEach((item) => {
     item.addEventListener("toggle", () => {
       if (!item.open) return;
-
-      // close others
       items.forEach((other) => {
         if (other !== item) other.open = false;
       });
     });
   });
+})();
+
+(() => {
+  const PHONE_E164 = "+15305016888";
+  const ARIA_LABEL = "Call Ánimo Studio";
+
+  const SELECTOR = [
+    "a.mobile-icon-btn--phone",
+    ".mobile-calls a[href^='tel:']",
+    "header a[href^='tel:']",
+    "nav a[href^='tel:']",
+    ".site-header a[href^='tel:']",
+  ].join(",");
+
+  const applyPhone = () => {
+    document.querySelectorAll(SELECTOR).forEach((a) => {
+      a.setAttribute("href", `tel:${PHONE_E164}`);
+      a.setAttribute("aria-label", ARIA_LABEL);
+    });
+  };
+
+  const init = () => {
+    applyPhone();
+
+    new MutationObserver(applyPhone).observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+    });
+
+    document.addEventListener(
+      "click",
+      (e) => {
+        const a = e.target.closest(SELECTOR);
+        if (!a) return;
+        a.setAttribute("href", `tel:${PHONE_E164}`);
+        a.setAttribute("aria-label", ARIA_LABEL);
+      },
+      true
+    );
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
