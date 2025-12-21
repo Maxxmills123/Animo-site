@@ -1,0 +1,108 @@
+.case-studies {
+  margin-top: clamp(1.25rem, 3vw, 2.25rem);
+  padding: clamp(1.25rem, 3.5vw, 2.5rem) clamp(1rem, 4vw, 3rem);
+}
+
+.case-studies__head {
+  text-align: center;
+  max-width: 80ch;
+  margin: 0 auto clamp(1.25rem, 3vw, 2rem);
+}
+
+.case-studies__title {
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.1rem, 1.02rem + 0.7vw, 1.45rem);
+  line-height: 1.1;
+  letter-spacing: 0.05rem;
+  font-weight: 100;
+}
+
+.case-studies__copy {
+  margin: 0;
+  font-family: "Oxygen", sans-serif;
+  font-style: normal;
+  font-size: clamp(1rem, 0.95rem + 0.6vw, 1.25rem);
+  line-height: 1.55;
+  opacity: 0.92;
+}
+
+.case-studies__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.2vw, 1.5rem);
+}
+
+.case-item {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+  gap: clamp(0.85rem, 1.6vw, 1.1rem);
+
+  padding: clamp(1rem, 2.3vw, 1.5rem);
+  border-radius: clamp(1rem, 1.4vw, 1.6rem);
+
+  background: none;
+  color: var(--accent-ink);
+  text-decoration: none;
+}
+
+.case-item__media {
+  width: clamp(190px, 22vw, 300px);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  overflow: hidden;
+
+  outline: 2px solid color-mix(in srgb, currentColor 18%, transparent);
+  outline-offset: 4px;
+}
+
+.case-item__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.case-item__body {
+  width: 70%;
+  text-align: center;
+}
+
+.case-item__title {
+  display: block;
+  margin: 0 0 0.35rem;
+
+  font-size: clamp(1.05rem, 0.95rem + 0.7vw, 1.35rem);
+  line-height: 1.2;
+  letter-spacing: 0.05rem;
+  font-weight: 100;
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+}
+
+.case-item__desc {
+  display: block;
+  margin: 0;
+  font-size: clamp(0.95rem, 0.9rem + 0.35vw, 1.05rem);
+  line-height: 1.45;
+  opacity: 0.9;
+  font-family: "Oxygen", sans-serif;
+  font-style: normal;
+}
+
+.case-item:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .case-studies__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-item__media {
+    width: clamp(120px, 38vw, 180px);
+  }
+}

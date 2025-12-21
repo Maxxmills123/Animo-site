@@ -1587,3 +1587,106 @@ html.is-drawer-open [data-drawer-overlay] {
     margin-top: 3rem;
   }
 }
+.float-cta {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: auto;
+
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.float-cta.is-hidden {
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+}
+
+.float-cta--mobile {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  background: var(--accent);
+}
+
+.float-cta--desktop {
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0;
+}
+
+.float-cta__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+
+  width: 100%;
+  text-decoration: none;
+
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.8px;
+  line-height: 1;
+
+  color: var(--accent-ink);
+}
+
+.float-cta--mobile .float-cta__link {
+  padding: 1rem 1rem;
+  border-radius: 0;
+  background: var(--accent);
+}
+
+.float-cta--desktop .float-cta__link {
+  padding: 0.95rem 1.15rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  width: auto;
+}
+
+.float-cta__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05em;
+  height: 1.05em;
+  flex: 0 0 auto;
+}
+
+.float-cta__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.float-cta__link:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 4px;
+}
+
+@media (max-width: 1024px) {
+  .float-cta--desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) {
+  .float-cta--mobile {
+    display: none;
+  }
+
+  .float-cta__link {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-cta {
+    transition: none;
+  }
+}

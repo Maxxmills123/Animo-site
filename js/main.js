@@ -258,3 +258,99 @@
     });
   });
 })();
+
+(() => {
+  const hero = document.querySelector(".hero.hero-bubble");
+  if (!hero) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reduceMotion.matches) return;
+
+  let ticking = false;
+
+  const clamp01 = (n) => Math.max(0, Math.min(1, n));
+
+  function update() {
+    const rect = hero.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    const end = vh * 0.6;
+    const travelled = -rect.top;
+
+    const t = clamp01(travelled / end);
+    hero.style.setProperty("--shrink", t.toFixed(4));
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
+})();
+
+(() => {
+  const ctas = Array.from(document.querySelectorAll("[data-float-cta]"));
+  if (!ctas.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const HIDE_CLASS = "is-hidden";
+
+  let timer = null;
+
+  function hideAll() {
+    for (const el of ctas) el.classList.add(HIDE_CLASS);
+  }
+
+  function showAll() {
+    for (const el of ctas) el.classList.remove(HIDE_CLASS);
+  }
+
+  function onScroll() {
+    hideAll();
+
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(
+      () => {
+        showAll();
+      },
+      reduceMotion.matches ? 0 : 220
+    );
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+
+  showAll();
+})();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const ctas = Array.from(document.querySelectorAll("[data-float-cta]"));
+  const footer =
+    document.querySelector("footer") || document.querySelector(".footer");
+
+  if (!ctas.length || !footer) return;
+
+  function setHidden(hidden) {
+    for (const cta of ctas) {
+      cta.style.display = hidden ? "none" : "";
+    }
+  }
+
+  const io = new IntersectionObserver(
+    ([entry]) => {
+      setHidden(entry.isIntersecting);
+    },
+    {
+      threshold: 0,
+      rootMargin: "0px 0px 200px 0px",
+    }
+  );
+
+  io.observe(footer);
+});
