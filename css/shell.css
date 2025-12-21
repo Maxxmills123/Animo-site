@@ -1,5 +1,5 @@
 .hero {
-  min-height: 100dvh;
+  min-height: 100dvh !important;
   display: grid;
   place-items: center;
   padding: clamp(1.25rem, 4vw, 3rem);
@@ -15,4 +15,49 @@
   letter-spacing: 0.2rem;
   text-transform: uppercase;
   font-size: clamp(2.2rem, 6vw, 5.5rem);
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.text-wide {
+  width: 90%;
+  max-width: 75ch;
+}
+
+.text {
+  margin: 0;
+  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.6rem);
+  line-height: 1.55;
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding: clamp(1rem, 3vw, 2rem);
+  }
+
+  .hero-title {
+    font-size: clamp(1.6rem, 5vw, 3rem);
+    letter-spacing: 0.1rem;
+  }
+
+  .text {
+    font-size: clamp(1.1rem, 1rem + 1.5vw, 1.6rem);
+    line-height: 1.45;
+  }
+
+  .text-wide {
+    width: 94%;
+  }
 }

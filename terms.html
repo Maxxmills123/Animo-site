@@ -70,6 +70,7 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="css/pages/terms.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/shell.css" />
 
@@ -296,370 +297,572 @@
       </aside>
     </header>
     <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <h1 id="hero-title" class="hero-title">Terms & Conditions</h1>
+      <section class="legal" aria-labelledby="legal-title">
+        <div class="legal__inner">
+          <header class="legal__header">
+            <h1 id="legal-title" class="legal__title">Terms + Conditions</h1>
+
+            <p class="legal__meta">
+              Last updated: <time datetime="2025-12-20">December 20, 2025</time>
+            </p>
+
+            <p class="legal__intro">
+              These Terms + Conditions ("Terms") govern your use of this website
+              operated by
+              <strong>Ánimo Studio</strong>. By accessing or using this site,
+              you agree to these Terms. If you do not agree, do not use the
+              site.
+            </p>
+          </header>
+
+          <nav class="legal__nav" aria-label="Terms sections">
+            <ul class="legal__navlist">
+              <li><a href="#use">Use of the site</a></li>
+              <li><a href="#content">Content + intellectual property</a></li>
+              <li><a href="#user">User submissions</a></li>
+              <li><a href="#links">Third-party links</a></li>
+              <li><a href="#disclaimers">Disclaimers</a></li>
+              <li><a href="#liability">Limitation of liability</a></li>
+              <li><a href="#privacy">Privacy</a></li>
+            </ul>
+          </nav>
+
+          <div class="legal__content">
+            <article class="legal__section" id="use">
+              <h2>1) Use of the site</h2>
+              <p>
+                You may use this site for personal and business purposes such as
+                viewing our work, learning about our services, and contacting
+                us.
+              </p>
+              <ul>
+                <li>
+                  You agree not to misuse the site, attempt to break it, or
+                  interfere with normal operation.
+                </li>
+                <li>
+                  You agree not to scrape, copy, or reproduce site content for
+                  commercial use without written permission.
+                </li>
+                <li>
+                  You agree not to post or transmit unlawful, harmful, or
+                  abusive content through the site.
+                </li>
+              </ul>
+            </article>
+
+            <article class="legal__section" id="content">
+              <h2>2) Content + intellectual property</h2>
+              <p>
+                All content on this site including photography, designs,
+                visuals, text, branding elements, and layout is owned by
+                <strong>[Your Business Name]</strong> or used with permission.
+                This content is protected by applicable copyright and
+                intellectual property laws.
+              </p>
+              <ul>
+                <li>
+                  You may not use, reproduce, distribute, sell, or create
+                  derivative works from site content without written permission.
+                </li>
+                <li>
+                  Trademarks, brand names, and logos displayed on this site
+                  belong to their respective owners.
+                </li>
+                <li>
+                  Project examples may include client-owned trademarks or names.
+                  Those remain the property of the client.
+                </li>
+              </ul>
+            </article>
+
+            <article class="legal__section" id="user">
+              <h2>3) User submissions</h2>
+              <p>
+                If you submit information through forms, email, or messages
+                (including project details or files), you confirm you have the
+                right to share it. You also grant us permission to use that
+                information for the purpose of responding to your inquiry,
+                preparing proposals, and communicating about potential work.
+              </p>
+              <ul>
+                <li>
+                  Please do not submit confidential or sensitive information
+                  unless we have agreed to receive it.
+                </li>
+                <li>
+                  We are not responsible for submissions that fail due to
+                  technical issues outside our control.
+                </li>
+              </ul>
+            </article>
+
+            <article class="legal__section" id="links">
+              <h2>4) Third-party links</h2>
+              <p>
+                This site may include links to third-party websites or
+                platforms. We do not control those sites and are not responsible
+                for their content, policies, or practices. Visiting third-party
+                links is at your own risk.
+              </p>
+            </article>
+
+            <article class="legal__section" id="disclaimers">
+              <h2>5) Disclaimers</h2>
+              <ul>
+                <li>
+                  The site is provided on an “as is” and “as available” basis.
+                  We do not guarantee uninterrupted access, error-free
+                  performance, or that the site will be free of bugs or security
+                  issues.
+                </li>
+                <li>
+                  We may update, change, or remove content at any time without
+                  notice.
+                </li>
+                <li>
+                  Any examples, testimonials, or case studies are for
+                  demonstration purposes and do not guarantee specific outcomes.
+                </li>
+              </ul>
+            </article>
+
+            <article class="legal__section" id="liability">
+              <h2>6) Limitation of liability</h2>
+              <p>
+                To the maximum extent permitted by law,
+                <strong>Ánimo Studio</strong> will not be liable for any
+                indirect, incidental, special, consequential, or punitive
+                damages arising from your use of this site. If liability cannot
+                be excluded, it will be limited to the minimum extent permitted
+                by law.
+              </p>
+            </article>
+
+            <article class="legal__section" id="privacy">
+              <h2>7) Privacy</h2>
+              <p>
+                We respect your privacy. Our handling of personal information is
+                described in our Privacy Policy. If you do not have a separate
+                Privacy Policy page yet, treat any details submitted through
+                forms or email as information provided voluntarily for
+                communication purposes.
+              </p>
+            </article>
+          </div>
+        </div>
       </section>
     </main>
-    <footer class="footer-shell" aria-label="Footer">
-      <div class="footer-inner">
-        <div class="footer-slogan-wrap" aria-label="Footer slogan">
-          <p class="footer-slogan">
-            better brands need better
-            <span class="animo-pop">
-              <span class="animo animo-term" tabindex="0">Animo</span>
-              <span class="animo-tooltip" role="tooltip">
-                <strong>Ánimo</strong> (Spanish): spirit, morale, courage. A
-                little boost of “you’ve got this.”
-              </span>
-            </span>
-            .
-          </p>
-        </div>
-
-        <nav
-          class="footer-services footer-services--desktop"
-          aria-label="Footer services"
-        >
-          <section
-            class="footer-services-col"
-            aria-label="Branding strategy and growth"
-          >
-            <h3 class="footer-services-title">Branding strat + growth</h3>
-            <ul class="footer-services-list">
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Creative consultation</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Brand strategy</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Campaign strategy</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Brand messaging (copy)</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Social media strategy</a
-                >
-              </li>
-            </ul>
-          </section>
-
-          <section class="footer-services-col" aria-label="Photo and video">
-            <h3 class="footer-services-title">Photo + Video</h3>
-            <ul class="footer-services-list">
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/brand-photography.html"
-                  >Brand photography</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/headshots-team.html"
-                  >Headshots + team</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/product-photography.html"
-                  >Product photography</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/event-photography.html"
-                  >Event photography</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/wedding-photography.html"
-                  >Wedding photography</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/videography.html"
-                  >Videography</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/drone-aerial.html"
-                  >Drone / aerial</a
-                >
-              </li>
-            </ul>
-          </section>
-
-          <section
-            class="footer-services-col"
-            aria-label="Brand identity and design"
-          >
-            <h3 class="footer-services-title">Brand identity + design</h3>
-            <ul class="footer-services-list">
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Logo design</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Signage design</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Packaging design</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Brand Playbook</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Graphic Design</a
-                >
-              </li>
-            </ul>
-          </section>
-        </nav>
-
-        <nav
-          class="footer-services footer-services--mobile"
-          aria-label="Footer services (mobile)"
-          data-footer-accordion
-        >
-          <details class="footer-services-acc" data-acc-item>
-            <summary class="footer-services-title">
-              Branding strat + growth
-              <span class="footer-services-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  focusable="false"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M6 9l6 6 6-6"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-            </summary>
-
-            <ul class="footer-services-list">
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Creative consultation</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Brand strategy</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Campaign strategy</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Brand messaging (copy)</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Social media strategy</a
-                >
-              </li>
-            </ul>
-          </details>
-
-          <details class="footer-services-acc" data-acc-item>
-            <summary class="footer-services-title">
-              Photo + Video
-              <span class="footer-services-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  focusable="false"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M6 9l6 6 6-6"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-            </summary>
-
-            <ul class="footer-services-list">
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/brand-photography.html"
-                  >Brand photography</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/headshots-team.html"
-                  >Headshots + team</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/product-photography.html"
-                  >Product photography</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/event-photography.html"
-                  >Event photography</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/wedding-photography.html"
-                  >Wedding photography</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/videography.html"
-                  >Videography</a
-                >
-              </li>
-              <li>
-                <a
-                  class="footer-services-link"
-                  href="/services/drone-aerial.html"
-                  >Drone / aerial</a
-                >
-              </li>
-            </ul>
-          </details>
-
-          <details class="footer-services-acc" data-acc-item>
-            <summary class="footer-services-title">
-              Brand identity + design
-              <span class="footer-services-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  focusable="false"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M6 9l6 6 6-6"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-            </summary>
-
-            <ul class="footer-services-list">
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Logo design</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Signage design</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Packaging design</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Brand Playbook</a
-                >
-              </li>
-              <li>
-                <a class="footer-services-link" href="/branding-design.html"
-                  >Graphic Design</a
-                >
-              </li>
-            </ul>
-          </details>
-        </nav>
-
-        <a class="footer-brand" href="/" aria-label="Home">
-          <img
-            class="footer-logo"
-            src="/assets/logo.png"
-            alt="Ánimo Studio logo"
-            width="180"
-            height="60"
-            loading="lazy"
-            decoding="async"
-          />
+    <footer class="footer" aria-label="Footer">
+      <div class="footer-ctas" aria-label="Footer calls to action">
+        <a class="footer-cta" href="/contact.html">
+          <span class="footer-cta__label">Have a project in mind?</span>
+          <span class="footer-cta__icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              focusable="false"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 12h12m0 0-5-5m5 5-5 5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
         </a>
 
-        <nav class="footer-nav" aria-label="Footer links">
-          <a class="footer-link" href="/about.html">About</a>
-          <a class="footer-link" href="/contact.html">Contact</a>
-          <a class="footer-link" href="/blog/index.html">Blog</a>
-          <a class="footer-link" href="/terms.html">Terms</a>
-        </nav>
-
-        <p class="footer-copy">
-          © <span id="footer-year"></span>
-          <a
-            class="footer-copy-link"
-            href="https://themxstudio.com"
-            target="_blank"
-            rel="noopener noreferrer"
+        <a class="footer-cta" href="/contact.html">
+          <span class="footer-cta__label"
+            >Are you ready to take the next step?</span
           >
-            theMXstudio
+          <span class="footer-cta__icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              focusable="false"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 12h12m0 0-5-5m5 5-5 5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="footer-shell" aria-label="Footer">
+        <div class="footer-inner">
+          <div class="footer-slogan-wrap" aria-label="Footer slogan">
+            <p class="footer-slogan">
+              better brands need better
+              <span class="animo-pop">
+                <span class="animo animo-term" tabindex="0">Animo</span>
+                <span class="animo-tooltip" role="tooltip">
+                  <strong>Ánimo</strong> (Spanish): spirit, morale, courage. A
+                  little boost of “you’ve got this.”
+                </span>
+              </span>
+              .
+            </p>
+          </div>
+
+          <nav
+            class="footer-services footer-services--desktop"
+            aria-label="Footer services"
+          >
+            <section
+              class="footer-services-col"
+              aria-label="Branding strategy and growth"
+            >
+              <h3 class="footer-services-title">Branding strat + growth</h3>
+              <ul class="footer-services-list">
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Creative consultation</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Brand strategy</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Campaign strategy</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Brand messaging (copy)</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Social media strategy</a
+                  >
+                </li>
+              </ul>
+            </section>
+
+            <section class="footer-services-col" aria-label="Photo and video">
+              <h3 class="footer-services-title">Photo + Video</h3>
+              <ul class="footer-services-list">
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/brand-photography.html"
+                    >Brand photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/headshots-team.html"
+                    >Headshots + team</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/product-photography.html"
+                    >Product photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/event-photography.html"
+                    >Event photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/wedding-photography.html"
+                    >Wedding photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/videography.html"
+                    >Videography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/drone-aerial.html"
+                    >Drone / aerial</a
+                  >
+                </li>
+              </ul>
+            </section>
+
+            <section
+              class="footer-services-col"
+              aria-label="Brand identity and design"
+            >
+              <h3 class="footer-services-title">Brand identity + design</h3>
+              <ul class="footer-services-list">
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Logo design</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Signage design</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Packaging design</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Brand Playbook</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Graphic Design</a
+                  >
+                </li>
+              </ul>
+            </section>
+          </nav>
+
+          <nav
+            class="footer-services footer-services--mobile"
+            aria-label="Footer services (mobile)"
+            data-footer-accordion
+          >
+            <details class="footer-services-acc" data-acc-item>
+              <summary class="footer-services-title">
+                Branding strat + growth
+                <span class="footer-services-icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    focusable="false"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M6 9l6 6 6-6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </summary>
+
+              <ul class="footer-services-list">
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Creative consultation</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Brand strategy</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Campaign strategy</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Brand messaging (copy)</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Social media strategy</a
+                  >
+                </li>
+              </ul>
+            </details>
+
+            <details class="footer-services-acc" data-acc-item>
+              <summary class="footer-services-title">
+                Photo + Video
+                <span class="footer-services-icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    focusable="false"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M6 9l6 6 6-6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </summary>
+
+              <ul class="footer-services-list">
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/brand-photography.html"
+                    >Brand photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/headshots-team.html"
+                    >Headshots + team</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/product-photography.html"
+                    >Product photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/event-photography.html"
+                    >Event photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/wedding-photography.html"
+                    >Wedding photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/videography.html"
+                    >Videography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-services-link"
+                    href="/services/drone-aerial.html"
+                    >Drone / aerial</a
+                  >
+                </li>
+              </ul>
+            </details>
+
+            <details class="footer-services-acc" data-acc-item>
+              <summary class="footer-services-title">
+                Brand identity + design
+                <span class="footer-services-icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    focusable="false"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M6 9l6 6 6-6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </summary>
+
+              <ul class="footer-services-list">
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Logo design</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Signage design</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Packaging design</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Brand Playbook</a
+                  >
+                </li>
+                <li>
+                  <a class="footer-services-link" href="/branding-design.html"
+                    >Graphic Design</a
+                  >
+                </li>
+              </ul>
+            </details>
+          </nav>
+
+          <a class="footer-brand" href="/" aria-label="Home">
+            <img
+              class="footer-logo"
+              src="/assets/logo.png"
+              alt="Ánimo Studio logo"
+              width="180"
+              height="60"
+              loading="lazy"
+              decoding="async"
+            />
           </a>
-        </p>
+
+          <nav class="footer-nav" aria-label="Footer links">
+            <a class="footer-link" href="/about.html">About</a>
+            <a class="footer-link" href="/contact.html">Contact</a>
+            <a class="footer-link" href="/blog/index.html">Blog</a>
+            <a class="footer-link" href="/terms.html">Terms</a>
+          </nav>
+
+          <p class="footer-copy">
+            © <span id="footer-year"></span>
+            <a
+              class="footer-copy-link"
+              href="https://themxstudio.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              theMXstudio
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
     <script>
