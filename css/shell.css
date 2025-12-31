@@ -20,6 +20,7 @@
 .center {
   display: grid;
   place-items: center;
+  margin-bottom: 0rem !important;
 }
 
 .center-text {
@@ -28,7 +29,7 @@
 
 .text-wide {
   width: 90%;
-  max-width: 75ch;
+  max-width: 100%;
 }
 
 .backtext {
@@ -36,7 +37,7 @@
   display: inline-block;
 
   margin: 0;
-  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.6rem);
+  font-size: clamp(2.4rem, 1.8rem + 3vw, 3.9rem);
   line-height: 1.55;
 
   font-family: "BBH Bogle", sans-serif;
@@ -47,42 +48,367 @@
   color: var(--accent-ink);
 }
 
-@media (max-width: 1024px) {
-  .hero {
-    min-height: auto;
-    padding: clamp(1rem, 3vw, 2rem);
-  }
+.thought_section .process {
+  width: 100%;
+  margin: 0;
+  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 5vw, 4rem);
+  background: transparent;
+  color: inherit;
+  border-radius: 0;
+}
 
-  .hero-title {
-    font-size: clamp(1.6rem, 5vw, 3rem);
-    letter-spacing: 0.1rem;
-  }
+.thought_section .process-inner {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 5rem;
+}
 
-  .text {
-    text-align: center;
-  }
+.thought_section .process-head {
+  width: min(980px, 100%);
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: left;
+}
 
-  .text-wide {
-    width: 90%;
+.thought_section .process-title {
+  margin: 0;
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+  font-size: clamp(4.2rem, 3.1rem + 5vw, 7rem);
+  line-height: 1.05;
+  color: var(--bg);
+  background-color: var(--accent-ink);
+  padding-left: 1rem;
+}
+
+.thought_section .process-steps {
+  width: 100%;
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  margin: 0;
+  padding: 0;
+}
+
+.thought_section .process-step {
+  margin: 0;
+  padding: 0;
+}
+
+.thought_section .process-step-title {
+  margin: 0 0 0.65rem;
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+  font-size: clamp(1.45rem, 1.15rem + 1.2vw, 2.25rem);
+  line-height: 1.2;
+  color: var(--accent-ink);
+  text-decoration: none;
+
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.12em 0.16em;
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
+
+  text-shadow: 0.8px 0.8px 0 color-mix(in srgb, var(--accent) 95%, transparent),
+    1.6px 1.6px 0 color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.thought_section .process-step-copy {
+  margin: 0;
+  font-family: "Oxygen", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 0.95rem + 0.55vw, 1.35rem);
+  line-height: 1.55;
+  color: var(--accent-ink);
+  opacity: 0.92;
+
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.12em 0.16em;
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.thought_section .photo-circle-row {
+  width: 100%;
+  margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
+  align-items: start;
+  gap: 0.35rem;
+}
+
+.thought_section .photo-circle-wrap {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.thought_section .photo-circle {
+  width: clamp(16rem, 14rem + 4vw, 22rem);
+  height: clamp(16rem, 14rem + 4vw, 22rem);
+  border-radius: 50%;
+  background: var(--accent-ink);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  text-align: center;
+  text-decoration: none;
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+  font-size: clamp(1.25rem, 1rem + 0.9vw, 1.85rem);
+  line-height: 1.2;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.thought_section .photo-circle__default {
+  display: block;
+  max-width: 14ch;
+  text-transform: none;
+}
+
+.thought_section .photo-circle__hover {
+  display: none;
+  color: var(--accent-ink);
+}
+
+.thought_section .photo-circle:hover {
+  transform: scale(1.03);
+  background: var(--accent);
+  color: var(--accent);
+}
+
+.thought_section .photo-circle:hover .photo-circle__default {
+  display: none;
+}
+
+.thought_section .photo-circle:hover .photo-circle__hover {
+  display: block;
+}
+
+.thought_section .photo-circle:focus-visible {
+  outline: 2px solid var(--bg);
+  outline-offset: 4px;
+}
+
+.thought_section2 {
+  background-color: var(--accent-ink);
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  margin-bottom: 10rem;
+  border-radius: 500px;
+}
+
+.thought_section2 .process {
+  width: 100%;
+  margin: 0;
+  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 5vw, 4rem);
+  padding-bottom: 1rem !important;
+  background: transparent;
+  color: inherit;
+  border-radius: 0;
+}
+
+.thought_section2 .process-inner {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 5rem;
+}
+
+.thought_section2 .process-head {
+  width: min(980px, 100%);
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: left;
+}
+
+.thought_section2 .process-title {
+  margin: 0;
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+  font-size: clamp(4.2rem, 3.1rem + 5vw, 7rem);
+  line-height: 1.05;
+  color: var(--accent-ink);
+  background-color: var(--bg);
+  padding-left: 1rem;
+}
+
+.thought_section2 .process-steps {
+  width: 100%;
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  margin: 0;
+  padding: 0;
+}
+
+.thought_section2 .process-step {
+  margin: 0;
+  padding: 0;
+}
+
+.thought_section2 .process-step-title {
+  margin: 0 0 0.65rem;
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+  font-size: clamp(1.45rem, 1.15rem + 1.2vw, 2.25rem);
+  line-height: 1.2;
+  color: var(--bg);
+  text-decoration: none;
+
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.12em 0.16em;
+}
+
+.thought_section2 .process-step-copy {
+  margin: 0;
+  font-family: "Oxygen", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 0.95rem + 0.55vw, 1.35rem);
+  line-height: 1.55;
+  color: var(--bg);
+  opacity: 0.92;
+
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.12em 0.16em;
+}
+
+.thought_section2 .photo-circle-row {
+  width: 100%;
+  margin: 0 auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
+  align-items: start;
+  gap: 0.35rem;
+}
+
+.thought_section2 .photo-circle-wrap {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.thought_section2 .photo-circle {
+  width: clamp(16rem, 14rem + 4vw, 22rem);
+  height: clamp(16rem, 14rem + 4vw, 22rem);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent-ink);
+  display: grid;
+  place-items: center;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  text-align: center;
+  text-decoration: none;
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+  font-size: clamp(1.25rem, 1rem + 0.9vw, 1.85rem);
+  line-height: 1.2;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.thought_section2 .photo-circle__default {
+  display: block;
+  max-width: 14ch;
+  text-transform: none;
+}
+
+.thought_section2 .photo-circle__hover {
+  display: none;
+  color: var(--accent-ink);
+}
+
+.thought_section2 .photo-circle:hover {
+  transform: scale(1.03);
+  background: var(--accent);
+  color: var(--accent);
+}
+
+.thought_section2 .photo-circle:hover .photo-circle__default {
+  display: none;
+}
+
+.thought_section2 .photo-circle:hover .photo-circle__hover {
+  display: block;
+}
+
+.thought_section2 .photo-circle:focus-visible {
+  outline: 2px solid var(--bg);
+  outline-offset: 4px;
+}
+
+@media (max-width: 1200px) {
+  .thought_section2 {
+    border-radius: 50px;
   }
 }
 
-@media (max-width: 790px) {
-  .hero {
-    min-height: auto;
-    padding: clamp(1rem, 3vw, 2rem);
-  }
-
-  .hero-title {
-    font-size: clamp(1.6rem, 5vw, 3rem);
-    letter-spacing: 0.1rem;
-  }
-
-  .text {
+@media (max-width: 1024px) {
+  .center .backtext,
+  .center-text .backtext,
+  .backtext {
+    font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+    line-height: 1.45;
+    margin-inline: auto;
     text-align: center;
   }
 
-  .text-wide {
-    width: 90%;
+  .thought_section .photo-circle-row,
+  .thought_section2 .photo-circle-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    padding-inline: 1rem;
+    gap: 0.35rem;
+  }
+
+  .thought_section .photo-circle,
+  .thought_section2 .photo-circle {
+    width: 100%;
+    max-width: 22rem;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+  .thought_section .photo-circle__default,
+  .thought_section2 .photo-circle__default {
+    max-width: 12ch;
+  }
+
+  .thought_section2 {
+    background-color: var(--accent-ink);
+    padding-bottom: 3rem;
+    margin-bottom: 10rem;
+    border-radius: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .thought_section .photo-circle-row,
+  .thought_section2 .photo-circle-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

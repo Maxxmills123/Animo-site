@@ -97,6 +97,24 @@
   outline-offset: 4px;
 }
 
+@media (hover: hover) {
+  .case-item {
+    transition: transform 200ms ease;
+  }
+
+  .case-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .case-item__media {
+    transition: transform 220ms ease;
+  }
+
+  .case-item:hover .case-item__media {
+    transform: scale(1.03);
+  }
+}
+
 @media (max-width: 760px) {
   .case-studies__grid {
     grid-template-columns: 1fr;

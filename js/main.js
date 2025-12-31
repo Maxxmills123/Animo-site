@@ -354,3 +354,166 @@ document.addEventListener("DOMContentLoaded", () => {
 
   io.observe(footer);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const processSections = document.querySelectorAll(".process--oval");
+
+  if (!processSections.length) {
+    console.log("No sections found");
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("wobble");
+          void entry.target.offsetWidth;
+          entry.target.classList.add("wobble");
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+    }
+  );
+
+  processSections.forEach((section) => {
+    observer.observe(section);
+  });
+});
+
+(() => {
+  const section = document.querySelector("[data-half-image]");
+  if (!section) return;
+
+  const circle = section.querySelector(".half-image__circle");
+  if (!circle) return;
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+  const lerp = (a, b, t) => a + (b - a) * t;
+
+  let raf = 0;
+  let currentT = 0;
+  let targetT = 0;
+
+  const measure = () => {
+    const sw = section.clientWidth;
+    const sh = section.clientHeight;
+
+    const styles = getComputedStyle(section);
+    const endMax = parseFloat(styles.getPropertyValue("--end-max")) || 560;
+    const endVw = (parseFloat(styles.getPropertyValue("--end-vw")) || 55) / 100;
+
+    const startSize = sw;
+    const endSize = Math.min(sh, Math.min(sw * endVw, endMax));
+
+    const shrinkDist =
+      parseFloat(styles.getPropertyValue("--shrink-dist")) || 0.6;
+    const smooth = parseFloat(styles.getPropertyValue("--smooth")) || 0.1;
+
+    return { sw, sh, startSize, endSize, shrinkDist, smooth };
+  };
+
+  const apply = (t) => {
+    const { sh, startSize, endSize } = measure();
+    const size = lerp(startSize, endSize, t);
+    const ty = lerp(0, Math.max(0, (sh - size) / 2), t);
+    circle.style.setProperty("--half-size", `${size}px`);
+    circle.style.setProperty("--half-ty", `${ty}px`);
+  };
+
+  const computeTarget = () => {
+    const rect = section.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    const { shrinkDist } = measure();
+    const distPx = Math.max(1, vh * shrinkDist);
+
+    const delta = Math.max(0, vh - rect.bottom);
+    targetT = clamp(delta / distPx, 0, 1);
+  };
+
+  const tick = () => {
+    raf = 0;
+
+    const { smooth } = measure();
+    currentT = lerp(currentT, targetT, clamp(smooth, 0.01, 0.35));
+    apply(currentT);
+
+    if (Math.abs(currentT - targetT) > 0.001) {
+      raf = requestAnimationFrame(tick);
+    }
+  };
+
+  const onUpdate = () => {
+    computeTarget();
+
+    if (reduce.matches) {
+      currentT = targetT;
+      apply(currentT);
+      return;
+    }
+
+    if (!raf) raf = requestAnimationFrame(tick);
+  };
+
+  window.addEventListener("scroll", onUpdate, { passive: true });
+  window.addEventListener("resize", onUpdate, { passive: true });
+
+  onUpdate();
+})();
+
+(() => {
+  const mq = window.matchMedia("(max-width: 1024px)");
+
+  const apply = () => {
+    if (!mq.matches) return;
+
+    document.querySelectorAll(".half-image").forEach((root) => {
+      if (root.dataset.noAnim === "1") return;
+
+      const clone = root.cloneNode(true);
+      clone.dataset.noAnim = "1";
+      root.replaceWith(clone);
+
+      clone.querySelectorAll(".half-image__circle").forEach((c) => {
+        c.style.setProperty("--half-ty", "0px");
+        c.style.transition = "none";
+        c.style.animation = "none";
+        c.style.willChange = "auto";
+      });
+
+      clone.querySelectorAll(".half-image__img").forEach((img) => {
+        img.style.transition = "none";
+        img.style.animation = "none";
+        img.style.objectPosition = "50% 100%";
+      });
+    });
+  };
+
+  apply();
+  if (mq.addEventListener) mq.addEventListener("change", apply);
+  else mq.addListener(apply);
+})();
+
+(() => {
+  const header = document.querySelector(".site-header");
+  const darkSection = document.querySelector(".thought_section2");
+  if (!header || !darkSection) return;
+
+  function update() {
+    const headerRect = header.getBoundingClientRect();
+    const secRect = darkSection.getBoundingClientRect();
+    const overlaps =
+      secRect.bottom > headerRect.top && secRect.top < headerRect.bottom;
+
+    header.classList.toggle("is-on-dark", overlaps);
+  }
+
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+})();
