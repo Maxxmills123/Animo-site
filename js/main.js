@@ -517,3 +517,90 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
 })();
+
+(() => {
+  const root = document.documentElement;
+  const ctas = Array.from(document.querySelectorAll("[data-float-cta]"));
+  if (!ctas.length) return;
+
+  const HIDE_CLASS = "is-hidden";
+
+  const sync = () => {
+    const open = root.classList.contains("is-drawer-open");
+    for (const cta of ctas) {
+      cta.classList.toggle(HIDE_CLASS, open);
+    }
+  };
+
+  sync();
+
+  const mo = new MutationObserver(sync);
+  mo.observe(root, { attributes: true, attributeFilter: ["class"] });
+})();
+
+(() => {
+  const header = document.querySelector("[data-header]");
+  if (!header) return;
+
+  const mq = window.matchMedia("(max-width: 1024px)");
+
+  let lastY = window.scrollY;
+  let ticking = false;
+  let idleTimer = null;
+
+  const TOP_REVEAL_PX = 40;
+  const DELTA = 6;
+  const IDLE_MS = 180;
+
+  const show = () => header.classList.remove("is-mobile-hidden");
+  const hide = () => header.classList.add("is-mobile-hidden");
+
+  function update() {
+    if (!mq.matches) {
+      header.classList.remove("is-mobile-hidden");
+      ticking = false;
+      return;
+    }
+
+    const y = window.scrollY;
+
+    if (y <= TOP_REVEAL_PX) {
+      show();
+      lastY = y;
+      ticking = false;
+      return;
+    }
+
+    const diff = y - lastY;
+
+    if (diff > DELTA) {
+      hide();
+      lastY = y;
+    } else if (diff < -DELTA) {
+      show();
+      lastY = y;
+    }
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (mq.matches) {
+      if (idleTimer) clearTimeout(idleTimer);
+      idleTimer = setTimeout(show, IDLE_MS);
+    }
+
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => {
+    lastY = window.scrollY;
+    if (!mq.matches) header.classList.remove("is-mobile-hidden");
+  });
+
+  if (mq.matches) show();
+})();
