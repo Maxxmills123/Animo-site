@@ -17,35 +17,18 @@
   font-size: clamp(2.2rem, 6vw, 5.5rem);
 }
 
-.center {
-  display: grid;
-  place-items: center;
-  margin-bottom: 0rem !important;
-}
-
-.center-text {
-  text-align: center;
-}
-
-.text-wide {
-  width: 90%;
-  max-width: 100%;
-}
-
-.backtext {
-  position: relative;
-  display: inline-block;
-
-  margin: 0;
-  font-size: clamp(2.4rem, 1.8rem + 3vw, 3.9rem);
+.emph {
+  font-weight: 900;
+  line-height: 1.55;
+  color: var(--accent-ink);
+  opacity: 0.92;
   line-height: 1.55;
 
-  font-family: "BBH Bogle", sans-serif;
-  font-style: normal;
-  font-weight: 100;
-  letter-spacing: 0.05rem;
-
-  color: var(--accent-ink);
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.12em 0.16em;
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
 .thought_section .process {
@@ -369,15 +352,6 @@
 }
 
 @media (max-width: 1024px) {
-  .center .backtext,
-  .center-text .backtext,
-  .backtext {
-    font-size: clamp(1.8rem, 4.2vw, 2.8rem);
-    line-height: 1.45;
-    margin-inline: auto;
-    text-align: center;
-  }
-
   .thought_section .photo-circle-row,
   .thought_section2 .photo-circle-row {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -410,5 +384,133 @@
   .thought_section .photo-circle-row,
   .thought_section2 .photo-circle-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.circle-wrap {
+  width: 100%;
+  margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.circle-figure,
+.circle-plain {
+  width: min(calc((100vw - 3rem - 0.35rem) / 2), 520px);
+  height: min(calc((100vw - 3rem - 0.35rem) / 2), 520px);
+  margin: 0;
+  border-radius: 50%;
+  align-self: center;
+  justify-self: center;
+}
+
+.circle-figure {
+  overflow: hidden;
+}
+
+.circle-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.circle-plain {
+  background: var(--accent-ink);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+  font-size: clamp(1.25rem, 1rem + 0.9vw, 1.85rem);
+  line-height: 1.2;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.circle-text--default {
+  display: block;
+  max-width: 14ch;
+  text-transform: none;
+}
+
+.circle-text--hover {
+  display: none;
+  color: var(--accent-ink);
+  width: 100%;
+  padding-inline: clamp(0.75rem, 2vw, 1.25rem);
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.circle-plain:hover .circle-text--hover {
+  display: block;
+}
+
+.circle-plain .circle-text--hover:hover,
+.circle-plain .circle-text--hover:focus,
+.circle-plain .circle-text--hover:focus-visible {
+  text-decoration: none;
+}
+
+.circle-plain:hover {
+  transform: scale(1.01);
+  background: var(--accent);
+  color: var(--accent);
+}
+
+.circle-plain:hover .circle-text--default {
+  display: none;
+}
+
+.circle-plain:hover .circle-text--hover {
+  display: block;
+}
+
+.circle-plain:focus-visible {
+  outline: 2px solid var(--bg);
+  outline-offset: 4px;
+}
+
+@media (max-width: 1024px) {
+  .circle-wrap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+    justify-items: center;
+    padding-inline: clamp(1rem, 3.5vw, 2rem);
+    gap: clamp(0.35rem, 1.8vw, 0.75rem);
+  }
+
+  .circle-figure,
+  .circle-plain {
+    width: 100%;
+    max-width: min(46vw, 32rem);
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .circle-wrap {
+    grid-template-columns: 1fr;
+    padding-inline: clamp(0.85rem, 5vw, 1.25rem);
+    gap: clamp(0.5rem, 3vw, 0.95rem);
+  }
+
+  .circle-figure,
+  .circle-plain {
+    max-width: min(92vw, 30rem);
   }
 }

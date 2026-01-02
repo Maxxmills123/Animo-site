@@ -126,6 +126,37 @@
   object-position: 50% 50% !important;
 }
 
+.center {
+  display: grid;
+  place-items: center;
+  margin-bottom: 0rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.text-wide {
+  width: 90%;
+  max-width: 100%;
+}
+
+.backtext {
+  position: relative;
+  display: inline-block;
+
+  margin: 0;
+  font-size: clamp(2.4rem, 1.8rem + 3vw, 3.9rem);
+  line-height: 1.55;
+
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+
+  color: var(--accent-ink);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero.hero-bubble {
     transition: none;

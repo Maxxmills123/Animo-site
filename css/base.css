@@ -1349,7 +1349,7 @@ html.is-drawer-open [data-drawer-overlay] {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 
-    padding-top: env(safe-area-inset-top);
+    padding-top: 0 !important;
     transform: translateZ(0);
   }
 

@@ -1,0 +1,86 @@
+.hero {
+  min-height: auto !important;
+
+  display: block;
+  padding: clamp(1.25rem, 4vw, 3rem);
+
+  font-family: "BBH Bogle", sans-serif;
+  font-style: normal;
+}
+
+.hero-title {
+  margin-top: 0rem;
+  text-align: center;
+  line-height: 0.92;
+
+  font-weight: 100;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+}
+
+.center {
+  font-family: "Oxygen", sans-serif;
+  font-style: normal;
+  align-items: center;
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 0rem !important;
+
+  padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(2rem, 6vw, 4rem);
+  padding-bottom: 0 !important;
+}
+
+.center-text {
+  text-align: center !important;
+  width: 100%;
+  max-width: 80vw;
+}
+
+.text-wide {
+  width: 100%;
+}
+
+.backtext {
+  margin: 0;
+  font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.35rem);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+main > section.center:nth-of-type(3) {
+  margin-top: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    margin-top: 5rem !important;
+    padding: clamp(1rem, 5vw, 2rem);
+  }
+
+  .hero-title {
+    text-align: center;
+    letter-spacing: 0.16rem;
+  }
+
+  .center {
+    padding: 0 clamp(1rem, 5vw, 2rem) 0;
+  }
+
+  .center-text {
+    text-align: left !important;
+  }
+
+  .backtext {
+    font-size: clamp(0.95rem, 0.9rem + 0.35vw, 1.1rem);
+    line-height: 1.7;
+  }
+}
+
+.thought_section2 {
+  margin-top: 2rem !important;
+  margin-bottom: 0 !important;
+}
