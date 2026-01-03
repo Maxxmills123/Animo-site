@@ -500,25 +500,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 (() => {
-  const header = document.querySelector(".site-header");
-  const darkSection = document.querySelector(".thought_section2");
-  if (!header || !darkSection) return;
-
-  function update() {
-    const headerRect = header.getBoundingClientRect();
-    const secRect = darkSection.getBoundingClientRect();
-    const overlaps =
-      secRect.bottom > headerRect.top && secRect.top < headerRect.bottom;
-
-    header.classList.toggle("is-on-dark", overlaps);
-  }
-
-  update();
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
-})();
-
-(() => {
   const root = document.documentElement;
   const ctas = Array.from(document.querySelectorAll("[data-float-cta]"));
   if (!ctas.length) return;

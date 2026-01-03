@@ -71,7 +71,7 @@ main > section.center:nth-of-type(3) {
   }
 
   .center-text {
-    text-align: left !important;
+    text-align: center !important;
   }
 
   .backtext {

@@ -1309,6 +1309,33 @@ html.is-drawer-open [data-drawer-overlay] {
     will-change: transform, opacity;
   }
 
+  [data-header] {
+    background: transparent !important;
+    transform: none !important;
+  }
+
+  [data-header].is-mobile-hidden {
+    transform: none !important;
+  }
+
+  [data-header] .nav-bar--mobile {
+    transition: transform 180ms ease, opacity 180ms ease;
+    will-change: transform, opacity;
+    transform-origin: 50% 0%;
+  }
+
+  [data-header].is-mobile-hidden .nav-bar--mobile {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0) scale(0.98);
+    pointer-events: none;
+  }
+
+  [data-header]:not(.is-mobile-hidden) .nav-bar--mobile {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    pointer-events: auto;
+  }
+
   .site-header.is-mobile-hidden .nav-bar--mobile {
     transform: translateY(-120%);
     opacity: 0;
