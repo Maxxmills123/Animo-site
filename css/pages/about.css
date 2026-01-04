@@ -36,7 +36,7 @@
 .center-text {
   text-align: center !important;
   width: 100%;
-  max-width: 80vw;
+  max-width: 60vw;
 }
 
 .text-wide {
@@ -59,6 +59,9 @@ main > section.center:nth-of-type(3) {
   .hero {
     margin-top: 5rem !important;
     padding: clamp(1rem, 5vw, 2rem);
+
+    display: grid;
+    justify-items: center;
   }
 
   .hero-title {
@@ -72,6 +75,8 @@ main > section.center:nth-of-type(3) {
 
   .center-text {
     text-align: center !important;
+    width: 100%;
+    max-width: 80vw;
   }
 
   .backtext {
@@ -83,4 +88,8 @@ main > section.center:nth-of-type(3) {
 .thought_section2 {
   margin-top: 2rem !important;
   margin-bottom: 0 !important;
+}
+
+.circle-wrap {
+ margin-bottom: 5rem !important;
 }
