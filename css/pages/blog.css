@@ -88,12 +88,12 @@
   width: 100%;
   display: grid;
   place-items: center;
-  text-align: left;
+  text-align: center;
 }
 
 .blog-header__title {
   margin: 0;
-  width: 75%;
+  width: 50%;
   text-wrap: balance;
   line-height: 1.08;
 
@@ -115,7 +115,7 @@
 }
 
 .blog-post__inner {
-  max-width: 70ch;
+  max-width: 50%;
   margin: 0 auto;
 }
 
@@ -130,4 +130,21 @@
 
 .blog-post__list li {
   margin: 0.5rem 0;
+}
+
+@media (max-width: 1024px) {
+  .blog-header {
+    width: 100%;
+    place-items: left;
+    text-align: left;
+    padding-left: 1rem !important;
+  }
+
+  .blog-header__title {
+    width: 95%;
+  }
+
+  .blog-post__inner {
+    max-width: 95%;
+  }
 }
