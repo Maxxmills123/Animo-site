@@ -99,6 +99,10 @@ a {
   pointer-events: none;
 }
 
+footer .animo::after {
+  transform: translateX(-40%) translateY(-20%) rotate(45deg) scale(0.5);
+}
+
 .site-header {
   position: sticky;
   top: 0;

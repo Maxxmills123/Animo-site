@@ -257,3 +257,31 @@
     margin-top: 5rem;
   }
 }
+
+.case-studies__grid {
+  --case-gap: clamp(1.1rem, 2.4vw, 1.8rem);
+  --case-card: clamp(18.5rem, 32vw, 24rem);
+
+  display: grid;
+  gap: var(--case-gap);
+
+  grid-template-columns: repeat(3, minmax(0, var(--case-card)));
+  justify-content: center;
+
+  max-width: calc((var(--case-card) * 3) + (var(--case-gap) * 2));
+  margin-inline: auto;
+}
+
+@media (max-width: 1100px) {
+  .case-studies__grid {
+    grid-template-columns: repeat(2, minmax(0, var(--case-card)));
+    max-width: calc((var(--case-card) * 2) + (var(--case-gap) * 1));
+  }
+}
+
+@media (max-width: 720px) {
+  .case-studies__grid {
+    grid-template-columns: 1fr;
+    max-width: min(100%, var(--case-card));
+  }
+}

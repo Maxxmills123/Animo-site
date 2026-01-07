@@ -536,6 +536,13 @@
   line-height: 1.1;
   letter-spacing: 0.05rem;
   font-weight: 100;
+  color: var(--bg);
+
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.12em 0.16em;
+  background: var(--accent-ink);
 }
 
 .case-studies__copy {
@@ -546,13 +553,23 @@
   font-size: clamp(1rem, 0.85rem + 1vw, 1.5rem);
   line-height: 1.55;
   opacity: 0.92;
-  max-width: 80%;
+  max-width: 60%;
+  margin-top: 1rem;
 }
 
 .case-studies__grid {
+  --case-gap: clamp(1.1rem, 2.4vw, 1.8rem);
+  --case-card: clamp(18.5rem, 32vw, 24rem);
+
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1.1rem, 2.4vw, 1.8rem);
+  gap: var(--case-gap);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--case-card)), min(100%, var(--case-card)))
+  );
+  justify-content: center;
+  max-width: calc((var(--case-card) * 3) + (var(--case-gap) * 2));
+  margin-inline: auto;
 }
 
 .case-item {
@@ -571,7 +588,7 @@
   border: 2px solid color-mix(in srgb, currentColor 14%, transparent);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
 
-  min-width: 0;
+  width: 100%;
 }
 
 .case-item__media {
@@ -668,5 +685,63 @@
   }
   .case-studies__copy {
     max-width: 90%;
+  }
+}
+
+.back-nav {
+  position: sticky;
+  top: calc(1.25rem + env(safe-area-inset-top));
+  z-index: 10;
+
+  width: 100%;
+  padding: 0;
+  display: block;
+  margin-top: 5rem;
+}
+
+.back-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  margin: 0;
+  padding: 0;
+
+  text-decoration: none;
+  color: var(--accent-ink, #121212);
+
+  font-family: "BBH Bogle", system-ui, -apple-system, "Segoe UI", Arial,
+    sans-serif;
+  font-weight: 100;
+  letter-spacing: 0.06em;
+  font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.1rem);
+}
+
+.back-nav {
+  padding: calc(1rem + env(safe-area-inset-top))
+    calc(1rem + env(safe-area-inset-left));
+}
+
+.back-nav__link:hover {
+  transform: translateY(-1px);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.back-nav__link:focus-visible {
+  outline: var(--focus, 2px solid currentColor);
+  outline-offset: 4px;
+}
+
+.back-nav__icon {
+  width: 1.05em;
+  height: 1.05em;
+  flex: 0 0 auto;
+}
+
+@media (min-width: 1025px) {
+  .back-nav {
+    margin-top: 0rem !important;
+    margin-left: 5rem !important;
   }
 }
