@@ -558,28 +558,20 @@
 }
 
 .case-studies__grid {
-  --case-gap: clamp(1.1rem, 2.4vw, 1.8rem);
-  --case-card: clamp(18.5rem, 32vw, 24rem);
-
-  display: grid;
-  gap: var(--case-gap);
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(100%, var(--case-card)), min(100%, var(--case-card)))
-  );
+  display: flex;
   justify-content: center;
-  max-width: calc((var(--case-card) * 3) + (var(--case-gap) * 2));
+  width: 100%;
   margin-inline: auto;
 }
 
 .case-item {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr;
   justify-items: start;
-  gap: clamp(0.9rem, 1.7vw, 1.25rem);
+  gap: clamp(0.75rem, 1.2vw, 1rem);
 
-  padding: clamp(1.15rem, 2.6vw, 1.85rem);
-  border-radius: 50px;
+  padding: clamp(0.85rem, 1.8vw, 1.25rem);
+  border-radius: 40px;
 
   background: var(--accent-ink);
   color: var(--bg);
@@ -588,7 +580,8 @@
   border: 2px solid color-mix(in srgb, currentColor 14%, transparent);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
 
-  width: 100%;
+  width: clamp(16rem, 22vw, 19rem);
+  flex: 0 0 auto;
 }
 
 .case-item__media {

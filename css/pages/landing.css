@@ -246,6 +246,10 @@
     max-width: min(92vw, 520px);
     margin: 0;
   }
+
+  .backtext {
+    font-size: clamp(1.6rem, 1.25rem + 1.8vw, 2.6rem);
+  }
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
@@ -258,30 +262,69 @@
   }
 }
 
-.case-studies__grid {
-  --case-gap: clamp(1.1rem, 2.4vw, 1.8rem);
-  --case-card: clamp(18.5rem, 32vw, 24rem);
-
-  display: grid;
-  gap: var(--case-gap);
-
-  grid-template-columns: repeat(3, minmax(0, var(--case-card)));
-  justify-content: center;
-
-  max-width: calc((var(--case-card) * 3) + (var(--case-gap) * 2));
-  margin-inline: auto;
+.club-row {
+  margin: 0;
+  padding: 0;
+  margin-top: 5rem;
+  margin-bottom: 0rem;
 }
 
-@media (max-width: 1100px) {
-  .case-studies__grid {
-    grid-template-columns: repeat(2, minmax(0, var(--case-card)));
-    max-width: calc((var(--case-card) * 2) + (var(--case-gap) * 1));
+.club-row__inner {
+  margin: 0 auto;
+  padding: 0;
+
+  width: min(100%, 1200px);
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+}
+
+.club {
+  margin: 0;
+  padding: 0;
+  width: min(100%, 360px);
+}
+
+.club__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .club-row {
+    margin-top: 2rem !important;
+    margin-bottom: 0rem !important;
+  }
+  .club-row__inner {
+    width: min(100%, 420px);
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .club {
+    width: min(100%, 330px);
+  }
+
+  .club:nth-child(n + 2) {
+    display: none;
   }
 }
 
-@media (max-width: 720px) {
-  .case-studies__grid {
-    grid-template-columns: 1fr;
-    max-width: min(100%, var(--case-card));
+@media (max-width: 1024px) and (min-width: 769px) {
+  .club-row {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .club-row__inner {
+    width: min(100%, 700px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.75rem, 1.8vw, 1.1rem);
   }
 }

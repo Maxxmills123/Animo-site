@@ -26,30 +26,110 @@
   }
 }
 
-.case-studies__grid {
-  --case-gap: clamp(1.1rem, 2.4vw, 1.8rem);
-  --case-card: clamp(18.5rem, 32vw, 24rem);
-
-  display: grid;
-  gap: var(--case-gap);
-
-  grid-template-columns: repeat(3, minmax(0, var(--case-card)));
-  justify-content: center;
-
-  max-width: calc((var(--case-card) * 3) + (var(--case-gap) * 2));
-  margin-inline: auto;
+.club-row {
+  margin: 0;
+  padding: 0;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
-@media (max-width: 1100px) {
-  .case-studies__grid {
-    grid-template-columns: repeat(2, minmax(0, var(--case-card)));
-    max-width: calc((var(--case-card) * 2) + (var(--case-gap) * 1));
+.club-row__inner {
+  margin: 0 auto;
+  padding: 0;
+
+  width: min(100%, 1200px);
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+}
+
+.club {
+  margin: 0;
+  padding: 0;
+  width: min(100%, 360px);
+}
+
+.club__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .club-row {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .club-row__inner {
+    width: min(100%, 800px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.75rem, 1.8vw, 1.1rem);
   }
 }
 
-@media (max-width: 720px) {
-  .case-studies__grid {
-    grid-template-columns: 1fr;
-    max-width: min(100%, var(--case-card));
+@media (max-width: 700px) {
+  .club-row {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .club-row__inner {
+    width: min(100%, 300px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.7rem, 3vw, 1rem);
+  }
+}
+
+.center {
+  font-family: "Oxygen", sans-serif;
+  font-style: normal;
+  align-items: center;
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 0rem !important;
+
+  padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(2rem, 6vw, 4rem);
+  padding-bottom: 0 !important;
+}
+
+.center-text {
+  text-align: center !important;
+  width: 100%;
+  max-width: 60vw;
+}
+
+.text-wide {
+  width: 100%;
+}
+
+.backtext {
+  margin: 0;
+  font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.35rem);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+@media (max-width: 1024px) {
+  .center {
+    padding: 0 clamp(1rem, 5vw, 2rem) 0;
+  }
+
+  .center-text {
+    text-align: center !important;
+    width: 100%;
+    max-width: 80vw;
+  }
+
+  .backtext {
+    font-size: clamp(0.95rem, 0.9rem + 0.35vw, 1.1rem);
+    line-height: 1.7;
   }
 }

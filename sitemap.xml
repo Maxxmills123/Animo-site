@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.animostudio.co/</loc></url>
   <url><loc>https://www.animostudio.co/about.html</loc></url>
   <url><loc>https://www.animostudio.co/branding-design.html</loc></url>
@@ -9,12 +9,24 @@
   <url><loc>https://www.animostudio.co/terms.html</loc></url>
 
   <url><loc>https://www.animostudio.co/blog/</loc></url>
+  <url><loc>https://www.animostudio.co/blog/brand-design-sacramento.html</loc></url>
+
+  <url><loc>https://www.animostudio.co/case-studies/crow-fair.html</loc></url>
+
+  <url><loc>https://www.animostudio.co/locations/sacramento.html</loc></url>
+  <url><loc>https://www.animostudio.co/locations/west-sacramento.html</loc></url>
+  <url><loc>https://www.animostudio.co/locations/elk-grove.html</loc></url>
+  <url><loc>https://www.animostudio.co/locations/roseville.html</loc></url>
+  <url><loc>https://www.animostudio.co/locations/davis.html</loc></url>
+  <url><loc>https://www.animostudio.co/locations/folsom.html</loc></url>
+  <url><loc>https://www.animostudio.co/locations/carmichael.html</loc></url>
+  <url><loc>https://www.animostudio.co/locations/citrus-heights.html</loc></url>
+  <url><loc>https://www.animostudio.co/locations/rocklin.html</loc></url>
 
   <url><loc>https://www.animostudio.co/services/brand-photography.html</loc></url>
   <url><loc>https://www.animostudio.co/services/headshots-team.html</loc></url>
   <url><loc>https://www.animostudio.co/services/product-photography.html</loc></url>
   <url><loc>https://www.animostudio.co/services/event-photography.html</loc></url>
-  <url><loc>https://www.animostudio.co/services/wedding-photography.html</loc></url>
   <url><loc>https://www.animostudio.co/services/videography.html</loc></url>
   <url><loc>https://www.animostudio.co/services/drone-aerial.html</loc></url>
 </urlset>
